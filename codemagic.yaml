@@ -1,0 +1,20 @@
+workflows:
+  flutter_android:
+    name: Flutter WebRTC Example APK
+
+    environment:
+      flutter: stable
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd example
+          flutter pub get
+
+      - name: Build APK
+        script: |
+          cd example
+          flutter build apk --release
+
+    artifacts:
+      - example/build/app/outputs/flutter-apk/*.apk
